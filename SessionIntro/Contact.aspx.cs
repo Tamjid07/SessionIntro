@@ -13,5 +13,31 @@ namespace SessionIntro
         {
 
         }
+
+        protected void DisplayButton_Click(object sender, EventArgs e)
+        {
+            Student aStudent = (Student)Session["Student"];
+            if (aStudent!=null)
+            {
+                nameTextBox.Text = aStudent.Name;
+                departmentTextBox.Text = aStudent.Department;
+             
+
+
+                numberLabel.Text = Session["Number"].ToString();
+                Session.Clear();
+               
+            }
+            else
+            {
+                nameTextBox.Text = String.Empty;
+                departmentTextBox.Text = String.Empty;
+                numberLabel.Text = "Enter Student Name & Department on Default Page";
+            }
+          
+          
+
+
+        }
     }
 }
